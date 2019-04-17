@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Error</title>
+<title>Good bye</title>
 </head>
 <body>
 <%
-if((Boolean)request.getSession().getAttribute("error")== null){
+if((Boolean)request.getSession().getAttribute("isAuthenticated")== null){
 	String redirectURL = "index.jsp";
     response.sendRedirect(redirectURL);
-    request.getSession().setAttribute("error", null);
 }
 %>
-The Authentication failed !
-<br><br>
-<a href ="index.jsp">Go back to authentication page</a>
+<h1>Good Bye !</h1>
+<p>See you soon on our book reservation web site.</p>
 </body>
 </html>

@@ -58,6 +58,7 @@ public class ResServlet extends HttpServlet {
 		
 		request.setAttribute("books", books);
 		
+		
 		if(bookName !=null){
 			request.getSession().setAttribute("book", bookName);
 			Boolean isExisiting = res.isExisting(bookName);
@@ -67,6 +68,10 @@ public class ResServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/books.jsp");
 	        rd.forward(request, response);
 		}if(reserve !=null && reserve.equals("yes")){
+			if((Boolean)request.getSession().getAttribute("isAuthenticated")== null){
+				RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+		        rd.forward(request, response);
+			}
 			res.reserve(book);
 			Boolean isAvailable = res.isAvailable(book);
 			request.setAttribute("bookName", book);
@@ -77,7 +82,7 @@ public class ResServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/books.jsp");
 	        rd.forward(request, response);
 		}
-	
+		}
 	}
 
-}
+

@@ -1,10 +1,10 @@
 package bean;
 
-import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Reservation {
-	private HashMap<String, Boolean> books = new HashMap<String, Boolean>();
-	
+	private Map<String, Boolean> books = new TreeMap<String, Boolean>(String.CASE_INSENSITIVE_ORDER);
 
 	public Reservation() {
 		books.put("Les miserables", true);
@@ -15,13 +15,14 @@ public class Reservation {
 	}
 	
 	public boolean isExisting(String bookName) {
-		return books.containsKey(bookName);
+		return books.containsKey(bookName) ;
 	}
 	
 	public String getBooks() {
 		String str="Books we have : ";
 		for ( String key : books.keySet() ) {
-			str = str + key+ " - ";
+			str = str + key+ " ";
+			
 		}	
 		return str;
 		

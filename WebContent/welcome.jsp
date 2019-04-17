@@ -7,6 +7,16 @@
 <title>Welcome</title>
 </head>
 <body>
+<%
+if((Boolean)request.getSession().getAttribute("isAuthenticated")== null){
+	String redirectURL = "index.jsp";
+    response.sendRedirect(redirectURL);
+}
+%>
+<form action="AuthServlet" method="post">
+<button type="submit">Logout</button><br>
+</form>
+<br>
 <h1>Hi, you can search any book you want </h1>
 <form action="ResServlet" method="post">
   Enter the book you want:<br>

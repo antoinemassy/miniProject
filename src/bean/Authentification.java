@@ -5,7 +5,7 @@ public class Authentification {
 	private String password;
 
 	public Authentification() {
-		this.username = "Antoine";
+		this.username = "username";
 		this.password = "password";
 	}
 

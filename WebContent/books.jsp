@@ -7,6 +7,10 @@
 <title>Books</title>
 </head>
 <body>
+<form action="AuthServlet" method="post">
+<button type="submit">Logout</button><br>
+</form>
+<br>
 	<%
 		Boolean isExisting = (Boolean) request.getAttribute("exist");
 		Boolean isAvailable = (Boolean) request.getAttribute("available");
@@ -33,6 +37,7 @@
 				out.println("The book does not exist");
 			}}
 		%>
+<br>
 <form action="ResServlet" method="post">
  Enter the book you want:<br>
  <input type="text" name="bookName"><br>
@@ -40,8 +45,10 @@
 </form>
 <br>
 <%
+if(request.getAttribute("books")!=null){
 String books = (String) request.getAttribute("books");
 out.println(books);
+}
 %>
 </body>
 </html>
