@@ -1,3 +1,6 @@
+username : username
+password : password
+
 II.2406 Web Technologies - Mini Project
 Objective
 Handling a book reservation process using Servlets and JSPs
